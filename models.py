@@ -9,8 +9,7 @@ class Student(Model):
     name = fields.CharField(max_length=100, nullable=False)
     email = fields.CharField(max_length=100, nullable=False)
     phone = fields.IntField(max_length=100, nullable=False)
-    activity = fields.CharField(max_length=100, nullable=False)
-    activity_id = fields.ForeignKeyField('models.Activity', related_name='student_id')
+    activity_details = fields.ForeignKeyField('models.Activity', related_name='activity_details')
 
 # supplier = activity
 class Activity(Model):
