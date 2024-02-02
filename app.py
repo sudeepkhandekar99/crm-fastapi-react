@@ -2,7 +2,22 @@ from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from models import *
 
+# adding cors
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
+
+# adding cors urls
+origins = ['http://localhost:3000']
+
+# add middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins = origins,
+    allow_credentials = True,
+    allow_methods = ['*'],
+    allow_headers = ['*']
+)
 
 @app.get('/')
 def index():
@@ -77,10 +92,14 @@ async def update_student_by_id(id: int, payload: student_request):
     response = await student_pydantic.from_tortoise_orm(student)
     return {"status": "success", "response": response}
 
-@app.delete('delete_student/{id}')
+@app.delete('/delete_student/{id}')
 async def delete_student(id: int):
-    await Student.filter(id=id).delete()
-    return {"response": "Student deleted successfully"}
+    student_obj = await Student.filter(id=id).first()
+    if student_obj:
+        await student_obj.delete()
+        return {"status": "success", "message": "Student deleted successfully"}
+    else:
+        return {"status": "error", "message": "Student not found"}
 
 
 
