@@ -1,0 +1,6 @@
+npm install react-scripts --save
+npm install react-bootstrap bootstrap
+npm install react-router-dom --save
+# in react 6 Switch are replaced with Routes from react 5
+npm uninstall react-router-dom
+npm install react-router-dom@5.2.0 --save
