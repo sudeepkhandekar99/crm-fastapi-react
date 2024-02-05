@@ -1,0 +1,18 @@
+# Ignore Python compiled files
+api/__pycache__/
+
+# Ignore node_modules directory in the front_end
+front_end/node_modules/
+
+# Ignore SQLite database files in the api
+api/database.sqlite3-shm
+api/database.sqlite3-wal
+
+# Ignore other specific files
+front_end/.gitignore
+front_end/README.md
+front_end/package-lock.json
+front_end/package.json
+front_end/public/index.html
+front_end/public/manifest.json
+front_end/public/robots.txt
