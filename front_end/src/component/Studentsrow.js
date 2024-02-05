@@ -1,6 +1,6 @@
 import react from 'react'
 
-const StudentRow = ({ id, name, email, phone }) => {
+const StudentRow = ({ id, name, email, phone, handleDelete }) => {
     return (
         <tr>
             <td>{id}</td>
@@ -10,7 +10,7 @@ const StudentRow = ({ id, name, email, phone }) => {
             <td>
                 <button className='btn btn-outline-info btn-sm ml-1 mr-2'>Update</button>
                 <button className='btn btn-outline-success btn-sm mr-2'>Activity</button>
-                <button className='btn btn-outline-danger btn-sm mr-2'>Delete</button>
+                <button onClick={() => handleDelete(id)} className='btn btn-outline-danger btn-sm mr-2'>Delete</button>
             </td>
         </tr>
     );
