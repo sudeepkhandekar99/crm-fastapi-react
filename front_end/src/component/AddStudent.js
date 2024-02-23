@@ -60,9 +60,9 @@ const AddStudent = () => {
     return (
         <Card>
             <Card.Body>
-                <Form onSubmit={postData}>
+                <Form>
                     <Form.Group controlId='Name'>
-                        <Form.Label>Product Name</Form.Label>
+                        <Form.Label>Student Name</Form.Label>
                         <Form.Control
                             type='text'
                             name='name'

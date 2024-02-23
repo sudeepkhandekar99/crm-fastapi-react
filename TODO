@@ -3,3 +3,4 @@ Backend:
 Join Tables - Activity details are not found for the students
 Searches are not on ID - Duplicates are giving problems in updates and deletes
 Searches are not case sensitive on text
+Use like in search functionality
